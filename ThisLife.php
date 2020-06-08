@@ -3,7 +3,7 @@
 namespace ThisLife;
 
 use Consciousnes as self;
-use Society as other; 
+use Society as other;
 
 class Human extends experience {
 
@@ -30,7 +30,9 @@ class Human extends experience {
 	{
 		while ( $this->age <= $this->expirationDate ) {
 			$this->persona += other::react();
-			$this->persona += (self::introspect() ? $this->whoAmI() : $this->liveBlindly());
+			if (self::introspect()) {
+				$this->persona = $this->whoAmI();
+			}				
 			$age++;
 		}
 		$this->die();
@@ -40,7 +42,7 @@ class Human extends experience {
 	{
 		while ( $this->age <= $this->expirationDate ) {
 			other::react();
-			$this->persona += self::enjoyLife();
+			self::live();
 			$age++;
 		}
 		$this->die();
@@ -49,12 +51,11 @@ class Human extends experience {
 	private function whoAmI()
 	{
 		try {
-			self::realize();
 			$this->persona = self::heightenConsciousness();
 			$this->liveConsciously();
-		} catch (other $distraction) {
+		} catch ($distraction) {
 			if ($this->sex == 1) {
-				$this->getPregnant();
+				$this->getPregnant(other::pick_someone(0);
 				$this->giveBirth();
 			}
 			$this->liveBlindly();
@@ -69,6 +70,7 @@ class Human extends experience {
 
 	protected function giveBirth()
 	{
+		other::new_human(self, $father);
 		other::react();
 		self::experience('attachment');
 		self::experience('everything');
@@ -79,6 +81,7 @@ class Human extends experience {
 		self::experience('fear');
 		echo "RIP";
 		self::laugh();
+		die();
 	}
 
 }
